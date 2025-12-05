@@ -1,0 +1,213 @@
+/* --- 1. Global Reset and Variables --- */
+:root {
+    --primary-color: #007bff; /* Blue */
+    --accent-color: #28a745;  /* Green for success/buttons */
+    --bg-color: #f4f7fa;     /* Light gray background */
+    --card-bg: #ffffff;      /* White card background */
+    --text-color: #333;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* --- 2. Layout and Containers --- */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* --- 3. Header Styling --- */
+header {
+    background: var(--card-bg);
+    border-bottom: 3px solid var(--primary-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.logo {
+    color: var(--primary-color);
+    font-size: 1.8em;
+}
+
+nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    margin-left: 20px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: var(--primary-color);
+    color: var(--card-bg);
+}
+
+/* --- 4. Card and Section Styling --- */
+.card {
+    background-color: var(--card-bg);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin-bottom: 25px;
+}
+
+h2, h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Input form (1 unit), Chart (2 units) */
+    gap: 25px;
+    margin-top: 25px;
+}
+
+/* --- 5. Welcome/Stats Section --- */
+.welcome-card {
+    border-left: 5px solid var(--accent-color);
+}
+
+.stats-grid {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+    padding: 10px 0;
+    border-top: 1px dashed #eee;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-item strong {
+    display: block;
+    font-size: 1.5em;
+    color: var(--accent-color);
+}
+
+/* --- 6. Form Styling --- */
+.input-form label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.input-form input,
+.input-form select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1em;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background-color: var(--accent-color);
+    color: var(--card-bg);
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+.btn:hover {
+    background-color: #1e7e34; /* Darker green */
+}
+
+/* === INTERACTIVITY: Button Animation === */
+.btn:active {
+    transform: scale(0.98);
+}
+
+/* --- 7. Table/Log Styling --- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    font-size: 0.95em;
+}
+
+thead {
+    background-color: var(--primary-color);
+    color: var(--card-bg);
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+tbody tr:hover {
+    background-color: #e9f0f9;
+}
+
+/* --- 8. Footer Styling --- */
+footer {
+    background-color: var(--text-color);
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 40px;
+}
+
+/* --- 9. Responsive Design (Mobile First Approach) --- */
+/* For screens smaller than 768px (e.g., typical tablets/phones) */
+@media (max-width: 768px) {
+    
+    header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav {
+        margin-top: 10px;
+    }
+
+    nav a {
+        margin: 0 8px;
+        padding: 5px;
+    }
+
+    .dashboard-grid {
+        /* Stack the input form and chart vertically on mobile */
+        grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+        /* Stack stats vertically on small screens */
+        flex-direction: column;
+        gap: 15px;
+    }
+}

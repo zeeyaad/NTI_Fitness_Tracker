@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💪 Fitness Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1 class="logo">FitTrack Pro</h1>
+            <nav>
+                <a href="#dashboard">Dashboard</a>
+                <a href="#activity-log">Log</a>
+                <a href="https://github.com/your-username/repo-name" target="_blank">Repo</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container" id="dashboard">
+        
+        <section class="welcome-card card">
+            <h2>Welcome Back, User! 👋</h2>
+            <p>Your goal is to burn 1500 kcal this week. Keep tracking!</p>
+            <div class="stats-grid">
+                <div class="stat-item"><span>Total Calories Burned:</span> <strong id="total-calories">0 kcal</strong></div>
+                <div class="stat-item"><span>Activities Logged:</span> <strong id="activity-count">0</strong></div>
+            </div>
+        </section>
+
+        <div class="dashboard-grid">
+            
+            <section class="input-form card">
+                <h3>+ Log New Activity</h3>
+                <form id="activity-form">
+                    <label for="activity-type">Activity Type</label>
+                    <select id="activity-type" required>
+                        <option value="Run">Run 🏃</option>
+                        <option value="Lift">Weight Lifting 🏋️</option>
+                        <option value="Yoga">Yoga 🧘</option>
+                        <option value="Cycle">Cycling 🚴</option>
+                    </select>
+
+                    <label for="duration">Duration (mins)</label>
+                    <input type="number" id="duration" min="1" max="300" required>
+
+                    <label for="calories">Calories Burned</label>
+                    <input type="number" id="calories" min="1" max="2000" required>
+
+                    <button type="submit" class="btn">Log Activity</button>
+                </form>
+            </section>
+
+            <section class="chart-section card">
+                <h3>Weekly Calories Burned</h3>
+                <canvas id="caloriesChart"></canvas>
+            </section>
+
+        </div>
+        
+        <section id="activity-log" class="log-table card">
+            <h3>Recent Activity Log</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Type</th>
+                        <th>Duration (mins)</th>
+                        <th>Calories (kcal)</th>
+                    </tr>
+                </thead>
+                <tbody id="log-body">
+                    </tbody>
+            </table>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 FitTrack Pro. University Assignment Project.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
